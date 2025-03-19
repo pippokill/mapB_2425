@@ -36,6 +36,12 @@ public class TestCalculator {
         Calculator calc2 = new Calculator(100);
         System.out.println(calc2.getMemory());
         System.out.println(calc2.sum(3, 2));
+        
+        ScientificCalculator calc3=new ScientificCalculator();
+        System.out.println(calc3.sin(3.14));
+        
+        Calculator calc4=calc3;
+        System.out.println(calc4.sum(3, 4));
     }
 
 }

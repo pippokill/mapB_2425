@@ -11,9 +11,9 @@ package di.uniba.map.b.lab.classi.esercizi;
  */
 public abstract class FiguraComp implements Figura, Comparable {
 
-    double dim1;
+    protected double dim1;
 
-    double dim2;
+    protected double dim2;
 
     /**
      *
@@ -50,22 +50,9 @@ public abstract class FiguraComp implements Figura, Comparable {
     public boolean equals(Object o) {
         if (o instanceof Figura) {
             return (((Figura) o).area() == this.area());
-            //return compareTo(o)==0;
         } else {
             return false;
         }
-    }
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.dim1) ^ (Double.doubleToLongBits(this.dim1) >>> 32));
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.dim2) ^ (Double.doubleToLongBits(this.dim2) >>> 32));
-        return hash;
     }
 
     /**

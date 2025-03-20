@@ -27,6 +27,8 @@ public class TestFigure {
         FiguraComp rq = new Rettangolo(6, 6);
         System.out.println(q.equals(rq));
         System.out.println(q.compareTo(r));
+        //String s = "error";
+        //q.compareTo(s);
     }
 
 }

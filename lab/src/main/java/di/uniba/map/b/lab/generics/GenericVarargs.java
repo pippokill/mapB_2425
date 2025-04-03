@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
+package di.uniba.map.b.lab.generics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,30 +23,34 @@ import java.util.List;
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class GenericVarargs {
+
+    /**
+     *
+     * @param <T>
+     * @param args
+     * @return
+     */
+    public static <T> List<T> makeList(T... args) {
+        List<T> result = new ArrayList<>();
+        for (T item : args) {
+            result.add(item);
+        }
+        return result;
+    }
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+        List<String> ls = makeList("A");
+        System.out.println(ls);
+        ls = makeList("A", "B", "C");
+        System.out.println(ls);
+        ls = makeList("ABCDEFFHIJKLMNOPQRSTUVWXYZ".split(""));
+        System.out.println(ls);
+        List<Integer> li = makeList(1, 4, 32);
+        System.out.println(li);
     }
-
 }

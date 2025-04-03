@@ -28,7 +28,7 @@ public class RegExpString {
     public static void main(String[] args) {
         System.out.println("=== Es. MATCHES ===");
         String regexp = "[a-zA-Z]+";
-        String test = "dfsdfswerwDFSDS";
+        String test = "XdfsdfsweSDArwDFSDS";
         //verifica se una stringa corrisponde ad una espressione regolare
         System.out.println(test.matches(regexp));
         System.out.println("=== Es. SPLIT ===");

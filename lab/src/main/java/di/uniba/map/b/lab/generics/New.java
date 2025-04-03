@@ -14,39 +14,47 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
+package di.uniba.map.b.lab.generics;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class New {
+
+    /**
+     *
+     * @param <K>
+     * @param <V>
+     * @return
+     */
+    public static <K, V> Map<K, V> map() {
+        return new HashMap<>();
+    }
+
+    /**
+     *
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> list() {
+        return new ArrayList<>();
+    }
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
-    }
+        //Inferenza automatica assegnazione anche come risultato di un metodo
+        List<String> l = new ArrayList<>();
+        Map<String, List<String>> sls = New.map();
+        List<String> ls = New.list();
 
+    }
 }

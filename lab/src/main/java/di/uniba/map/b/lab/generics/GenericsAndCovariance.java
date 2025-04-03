@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
+package di.uniba.map.b.lab.generics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,30 +23,22 @@ import java.util.List;
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class GenericsAndCovariance {
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+        // Wildcards allow covariance:
+        List<? extends Fruit> flist = new ArrayList<Apple>();
+        // Compile Error: can't add any type of object:
+        //flist.add(new Apple());
+        //flist.add(new Fruit());
+        //flist.add(new Object());
+        flist.add(null); // Legal but uninteresting
+        // We know that it returns at least Fruit:
+        Fruit f = flist.get(0);
+        System.out.println(f);
     }
-
 }

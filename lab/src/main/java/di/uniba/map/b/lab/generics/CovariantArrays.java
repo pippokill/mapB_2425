@@ -14,39 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
-
-import java.util.ArrayList;
-import java.util.List;
+package di.uniba.map.b.lab.generics;
 
 /**
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class CovariantArrays {
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+        Fruit[] fruit = new Apple[10];
+        fruit[0] = new Apple(); // OK
+        fruit[1] = new Jonathan(); // OK
+        // Runtime type is Apple[], not Fruit[] or Orange[]
+        try {
+            // Compiler allows you to add Fruit:
+            fruit[0] = new Fruit(); // ArrayStoreException
+            //errore a run-time, ma non a compile-time
+        } catch (Exception e) {
+            System.err.println("ERROR: "+e);
+        }
+        try {
+            // Compiler allows you to add Oranges:
+            fruit[0] = new Orange(); // ArrayStoreException
+        } catch (Exception e) {
+            System.err.println("ERROR: "+e);
+        }
     }
-
 }

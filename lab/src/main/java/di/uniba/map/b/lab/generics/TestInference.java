@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
+package di.uniba.map.b.lab.generics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,30 +23,20 @@ import java.util.List;
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class TestInference {
 
     /**
-     *
-     * @param args
+     * @param args the command line arguments
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+        List<String> ls=new ArrayList<>();
+        ls.add("pippo");
+        Class c=ArrayList.class;
+        System.out.println(c.getName());
+        System.out.println(ls.getClass().getName());
+        List<Integer> ls1=new ArrayList();
+        ls1.add(1);
+        System.out.println(ls1.getClass().getName());
     }
-
+    
 }

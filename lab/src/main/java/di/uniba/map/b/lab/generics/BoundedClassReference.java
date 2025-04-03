@@ -14,39 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
-
-import java.util.ArrayList;
-import java.util.List;
+package di.uniba.map.b.lab.generics;
 
 /**
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class BoundedClassReference {
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+        Class<? extends Number> bounded = int.class;
+        bounded = double.class;
+        bounded = Number.class;
+        
+        Holder3<String> h1=new Holder3<>("pippo");
+        Holder3<?> h2=new Holder3<>(43);
+        h2=new Holder3<>("sdklfjldsk");
+        Holder3<? extends Number> h3=new Holder3<>(3);
     }
-
 }

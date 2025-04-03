@@ -32,7 +32,7 @@ public class MacherExample {
         Pattern pattern = Pattern.compile("[a-zA-Z]+");
         System.out.println("=== Es. MATCHES ===");
         Matcher matcher1 = pattern.matcher("dlkflsASDaslsdSD");
-        //deve corrispondere l'intera stringaMatcher matcher1 = pattern.matcher("dlkflsASDaslsdSD")
+        //deve corrispondere l'intera stringa
         System.out.println(matcher1.matches());
         System.out.println("=== Es. LOOKINGAT ===");
         Matcher matcher2 = pattern.matcher("dlkflsASDaslsdSD 8798767");

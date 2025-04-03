@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
+package di.uniba.map.b.lab.generics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,30 +23,26 @@ import java.util.List;
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class SuperTypeWildcards {
+
+    static void writeTo(List<? super Apple> apples) {
+        apples.add(new Apple());
+        apples.add(new Jonathan());
+        //apples.add(new Orange()); // Orange doesn’t extend Apple
+        //apples.add(new Fruit()); // Fruit doesn’t extend Apple
+    }
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+        List<Apple> l = new ArrayList<>();
+        //List<Fruit> l=new ArrayList<>();
+        writeTo(l);
+        for (Object o : l) {
+            System.out.println(o.getClass().getName());
+        }
     }
 
 }

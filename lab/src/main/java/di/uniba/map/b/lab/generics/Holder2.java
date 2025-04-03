@@ -14,39 +14,50 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
-
-import java.util.ArrayList;
-import java.util.List;
+package di.uniba.map.b.lab.generics;
 
 /**
  *
  * @author pierpaolo
  */
-public class EsempioList1 {
+public class Holder2 {
+
+    private Object a;
+
+    /**
+     *
+     * @param a
+     */
+    public Holder2(Object a) {
+        this.a = a;
+    }
+
+    /**
+     *
+     * @param a
+     */
+    public void set(Object a) {
+        this.a = a;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Object get() {
+        return a;
+    }
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+        Holder2 h2 = new Holder2(new Automobile());
+        Automobile a =(Automobile) h2.get();
+        h2.set("Not an Automobile");
+        String s = (String) h2.get();
+        h2.set(1); // Autoboxes to Integer
+        Integer x = (Integer) h2.get();
     }
-
 }

@@ -14,39 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.collection;
-
-import java.util.ArrayList;
-import java.util.List;
+package di.uniba.map.b.lab.generics;
 
 /**
  *
  * @author pierpaolo
+ * @param <A>
+ * @param <B>
  */
-public class EsempioList1 {
+public class TwoTuple<A, B> {
 
     /**
      *
-     * @param args
      */
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        System.out.println(list);
-        list.set(0, "z");
-        System.out.println(list);
-        list.add(3, "d");
-        System.out.println(list);
-        System.out.println(list.get(1));
-        list.remove(2);
-        System.out.println(list);
-        System.out.println(list.indexOf("a"));
-        list.add("a");
-        System.out.println(list);
-        System.out.println(list.lastIndexOf("a"));
+    public final A first;
+
+    /**
+     *
+     */
+    public final B second;
+
+    /**
+     *
+     * @param a
+     * @param b
+     */
+    public TwoTuple(A a, B b) {
+        first = a;
+        second = b;
     }
 
+    /**
+     *
+     * @return
+     */
+    public String toString() {
+        return "(" + first + ", " + second + ")";
+    }
 }

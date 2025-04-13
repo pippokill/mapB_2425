@@ -14,34 +14,37 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
+package di.uniba.map.b.lab.io;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
  * @author pierpaolo
  */
-public class SuperTypeWildcards {
-
-    static void writeTo(List<? super Apple> apples) {
-        apples.add(new Apple());
-        apples.add(new Jonathan());
-        //apples.add(new Orange()); // Orange doesn’t extend Apple
-        //apples.add(new Fruit()); // Fruit doesn’t extend Apple
-    }
+public class ScannerFile {
 
     /**
-     *
-     * @param args
+     * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) {
-        //List<Apple> l = new ArrayList<>();
-        List<Fruit> l=new ArrayList<>();
-        writeTo(l);
-        for (Object o : l) {
-            System.out.println(o.getClass().getName());
+    public static void main(String[] args) throws IOException {
+        Scanner s = null;
+        File file=new File("resources/sorgente.txt");
+        try {
+            s = new Scanner(new BufferedReader(new FileReader(file)));
+            //s.useDelimiter("[\\s,.;.]+");
+            while (s.hasNext()) {
+                System.out.println(s.next());
+            }
+        } finally {
+            if (s != null) {
+                s.close();
+            }
         }
     }
 

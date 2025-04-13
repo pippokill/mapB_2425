@@ -26,6 +26,7 @@ public class Fruit {
      *
      * @return
      */
+    @Override
     public String toString() {
         return "Fruit";
     }

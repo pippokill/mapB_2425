@@ -30,6 +30,7 @@ public class BoundedClassReference {
         Class<? extends Number> bounded = int.class;
         bounded = double.class;
         bounded = Number.class;
+        //bounded = String.class; // compile-time error
         
         Holder3<String> h1=new Holder3<>("pippo");
         Holder3<?> h2=new Holder3<>(43);

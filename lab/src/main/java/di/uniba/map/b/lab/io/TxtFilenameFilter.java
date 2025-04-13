@@ -14,35 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
+package di.uniba.map.b.lab.io;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.FilenameFilter;
 
 /**
  *
  * @author pierpaolo
  */
-public class SuperTypeWildcards {
-
-    static void writeTo(List<? super Apple> apples) {
-        apples.add(new Apple());
-        apples.add(new Jonathan());
-        //apples.add(new Orange()); // Orange doesn’t extend Apple
-        //apples.add(new Fruit()); // Fruit doesn’t extend Apple
-    }
+public class TxtFilenameFilter implements FilenameFilter {
 
     /**
      *
-     * @param args
+     * @param arg0
+     * @param arg1
+     * @return
      */
-    public static void main(String[] args) {
-        //List<Apple> l = new ArrayList<>();
-        List<Fruit> l=new ArrayList<>();
-        writeTo(l);
-        for (Object o : l) {
-            System.out.println(o.getClass().getName());
-        }
+    @Override
+    public boolean accept(File arg0, String arg1) {
+        return arg1.endsWith(".txt");
     }
 
 }

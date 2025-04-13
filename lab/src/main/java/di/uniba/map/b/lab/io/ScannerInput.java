@@ -14,35 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
+package di.uniba.map.b.lab.io;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  *
  * @author pierpaolo
  */
-public class SuperTypeWildcards {
-
-    static void writeTo(List<? super Apple> apples) {
-        apples.add(new Apple());
-        apples.add(new Jonathan());
-        //apples.add(new Orange()); // Orange doesn’t extend Apple
-        //apples.add(new Fruit()); // Fruit doesn’t extend Apple
-    }
+public class ScannerInput {
 
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
-        //List<Apple> l = new ArrayList<>();
-        List<Fruit> l=new ArrayList<>();
-        writeTo(l);
-        for (Object o : l) {
-            System.out.println(o.getClass().getName());
+        Scanner scanner = null;
+        scanner = new Scanner(new InputStreamReader(System.in));
+        String s = "";
+        while (scanner.hasNext()) {
+            s = scanner.next();
+            if (!s.equalsIgnoreCase("exit")) {
+                System.out.println("Hai scritto: " + s);
+            } else {
+                System.out.println("Goodbye!");
+                break;
+            }
         }
+        scanner.close();
     }
-
 }

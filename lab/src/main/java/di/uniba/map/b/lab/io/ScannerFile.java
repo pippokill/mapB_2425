@@ -37,7 +37,7 @@ public class ScannerFile {
         File file=new File("resources/sorgente.txt");
         try {
             s = new Scanner(new BufferedReader(new FileReader(file)));
-            //s.useDelimiter("[\\s,.;.]+");
+            //s.useDelimiter("[\\s,.;]+");
             while (s.hasNext()) {
                 System.out.println(s.next());
             }

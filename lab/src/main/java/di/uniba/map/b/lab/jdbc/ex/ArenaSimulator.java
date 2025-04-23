@@ -35,7 +35,6 @@ public class ArenaSimulator {
             if (score1 > score2) {
                 dao.inserisciBattaglia(r1, r2, r1);
             } else if (score2 > score1) {
-
                 dao.inserisciBattaglia(r1, r2, r2);
             }
             // in caso di parità la battaglia non è considerata valida e non viene salvata

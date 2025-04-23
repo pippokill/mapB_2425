@@ -40,7 +40,7 @@ public class DatabaseManager {
             conn = DriverManager.getConnection("jdbc:h2:./resources/db/arena", dbprops);
             Statement stm = conn.createStatement();
             stm.executeUpdate(TABLE_ROBOT);
-            stm.executeLargeUpdate(TABLE_BATTLE);
+            stm.executeUpdate(TABLE_BATTLE);
             stm.close();
             return conn;
         }

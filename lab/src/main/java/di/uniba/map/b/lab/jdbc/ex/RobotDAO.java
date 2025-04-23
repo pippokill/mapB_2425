@@ -33,7 +33,7 @@ public class RobotDAO {
         stm.setString(1, nome);
         stm.setInt(2, potenza);
         stm.setInt(3, difesa);
-        stm.executeLargeUpdate();
+        stm.executeUpdate();
         stm.close();
     }
 
@@ -42,7 +42,7 @@ public class RobotDAO {
         ResultSet rs = stm.executeQuery("SELECT * FROM robot");
         List<Robot> list = new ArrayList<>();
         while (rs.next()) {
-            list.add(Robot.creatFromResultSet(rs));
+            list.add(Robot.createFromResultSet(rs));
         }
         rs.close();
         stm.close();
@@ -54,7 +54,7 @@ public class RobotDAO {
         ResultSet rs = stm.executeQuery("SELECT id, nome, potenza, difesa FROM robot ORDER BY (difesa+potenza) DESC");
         Robot robot = null;
         if (rs.next()) {
-            robot = Robot.creatFromResultSet(rs);
+            robot = Robot.createFromResultSet(rs);
         }
         rs.close();
         stm.close();
@@ -66,7 +66,7 @@ public class RobotDAO {
         stm.setInt(1, robot1);
         stm.setInt(2, robot2);
         stm.setInt(3, winner);
-        stm.executeLargeUpdate();
+        stm.executeUpdate();
         stm.close();
     }
 

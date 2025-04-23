@@ -91,7 +91,7 @@ public class Robot {
         return "Robot{" + "id=" + id + ", nome=" + nome + ", potenza=" + potenza + ", difesa=" + difesa + '}';
     }
 
-    public static Robot creatFromResultSet(ResultSet rs) throws SQLException {
+    public static Robot createFromResultSet(ResultSet rs) throws SQLException {
         return new Robot(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4));
     }
 

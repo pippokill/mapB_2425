@@ -33,9 +33,9 @@ public class ArenaSimulator {
             int score1 = robots.get(r1).getPotenza() + robots.get(r1).getDifesa() + rnd.nextInt(10);
             int score2 = robots.get(r2).getPotenza() + robots.get(r2).getDifesa() + rnd.nextInt(10);
             if (score1 > score2) {
-                dao.inserisciBattaglia(r1, r2, r1);
+                dao.inserisciBattaglia(robots.get(r1).getId(), robots.get(r2).getId(), robots.get(r1).getId());
             } else if (score2 > score1) {
-                dao.inserisciBattaglia(r1, r2, r2);
+                dao.inserisciBattaglia(robots.get(r1).getId(), robots.get(r2).getId(), robots.get(r2).getId());
             }
             // in caso di parità la battaglia non è considerata valida e non viene salvata
         }

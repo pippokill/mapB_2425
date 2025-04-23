@@ -14,7 +14,7 @@
                 <exec.executable>java</exec.executable>
                 <exec.mainClass>di.uniba.map.b.lab.rtti.ShowMethods</exec.mainClass>
                 <exec.vmArgs></exec.vmArgs>
-                <exec.appArgs>java.lang.Math</exec.appArgs>
+                <exec.appArgs>java.lang.Math sin</exec.appArgs>
             </properties>
         </action>
         <action>
@@ -32,7 +32,7 @@
                 <jpda.listen>true</jpda.listen>
                 <exec.mainClass>di.uniba.map.b.lab.rtti.ShowMethods</exec.mainClass>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
-                <exec.appArgs>java.lang.Math</exec.appArgs>
+                <exec.appArgs>java.lang.Math sin</exec.appArgs>
             </properties>
         </action>
         <action>
@@ -49,7 +49,7 @@
                 <exec.executable>java</exec.executable>
                 <exec.mainClass>di.uniba.map.b.lab.rtti.ShowMethods</exec.mainClass>
                 <exec.vmArgs></exec.vmArgs>
-                <exec.appArgs>java.lang.Math</exec.appArgs>
+                <exec.appArgs>java.lang.Math sin</exec.appArgs>
             </properties>
         </action>
     </actions>

@@ -29,7 +29,7 @@ public class SynchronizedObj {
 
     private int nameCount = 0;
 
-    private List<String> nameList = new ArrayList<>();
+    private final List<String> nameList = new ArrayList<>();
 
     /**
      *
@@ -78,7 +78,7 @@ public class SynchronizedObj {
             Thread t = new NameThread(sobj, "Name-" + i);
             t.start();
         }
-        Thread.sleep(3000);
+        Thread.sleep(500);
         System.err.println(sobj.getNameCount());
         System.err.println(sobj.getLastName());
         System.err.println(sobj.getNameList());

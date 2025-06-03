@@ -24,10 +24,21 @@ public class RobotDAO {
 
     private final Connection connection;
 
+    /**
+     *
+     * @param connection
+     */
     public RobotDAO(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     *
+     * @param nome
+     * @param potenza
+     * @param difesa
+     * @throws SQLException
+     */
     public void aggiungiRobot(String nome, int potenza, int difesa) throws SQLException {
         PreparedStatement stm = connection.prepareStatement("INSERT INTO robot(nome, potenza, difesa) VALUES (?, ?, ?)");
         stm.setString(1, nome);
@@ -37,6 +48,11 @@ public class RobotDAO {
         stm.close();
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public List<Robot> getTuttiIRobot() throws SQLException {
         Statement stm = connection.createStatement();
         ResultSet rs = stm.executeQuery("SELECT * FROM robot");
@@ -49,6 +65,11 @@ public class RobotDAO {
         return list;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public Robot getRobotPiuForte() throws SQLException {
         Statement stm = connection.createStatement();
         ResultSet rs = stm.executeQuery("SELECT id, nome, potenza, difesa FROM robot ORDER BY (difesa+potenza) DESC");
@@ -61,6 +82,13 @@ public class RobotDAO {
         return robot;
     }
 
+    /**
+     *
+     * @param robot1
+     * @param robot2
+     * @param winner
+     * @throws SQLException
+     */
     public void inserisciBattaglia(int robot1, int robot2, int winner) throws SQLException {
         PreparedStatement stm = connection.prepareStatement("INSERT INTO battle(robot1, robot2, winner) VALUES (?, ?, ?)");
         stm.setInt(1, robot1);
@@ -70,6 +98,12 @@ public class RobotDAO {
         stm.close();
     }
 
+    /**
+     *
+     * @param best
+     * @return
+     * @throws SQLException
+     */
     public int classifica(boolean best) throws SQLException {
         Statement stm = connection.createStatement();
         Map<Integer, Integer> map = new HashMap<>();
@@ -97,6 +131,10 @@ public class RobotDAO {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Connection getConnection() {
         return connection;
     }

@@ -11,8 +11,14 @@ package di.uniba.map.b.lab.classi.esercizi;
  */
 public abstract class FiguraComp implements Figura, Comparable {
 
+    /**
+     *
+     */
     protected double dim1;
 
+    /**
+     *
+     */
     protected double dim2;
 
     /**

@@ -18,10 +18,19 @@ public class ArenaSimulator {
 
     private final Random rnd = new Random();
 
+    /**
+     *
+     * @param dao
+     */
     public ArenaSimulator(RobotDAO dao) {
         this.dao = dao;
     }
 
+    /**
+     *
+     * @param n
+     * @throws SQLException
+     */
     public void simulate(int n) throws SQLException {
         List<Robot> robots = dao.getTuttiIRobot();
         for (int i = 0; i < n; i++) {
@@ -41,6 +50,10 @@ public class ArenaSimulator {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public RobotDAO getDao() {
         return dao;
     }

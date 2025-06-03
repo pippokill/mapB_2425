@@ -30,6 +30,11 @@ public class DatabaseManager {
 
     private Connection conn = null;
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public Connection getConnection() throws SQLException {
         if (conn != null) {
             return conn;
@@ -46,6 +51,10 @@ public class DatabaseManager {
         }
     }
 
+    /**
+     *
+     * @throws SQLException
+     */
     public void closeConnection() throws SQLException {
         if (this.conn != null) {
             conn.close();
